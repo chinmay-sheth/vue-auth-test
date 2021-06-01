@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Oneclick login using Google"/>
+  <HelloWorld msg="Testing Oneclick login using Google"/>
 </template>
 
 <script>
@@ -22,5 +22,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img{
+  height: 150px;
 }
 </style>
