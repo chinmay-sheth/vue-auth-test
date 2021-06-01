@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Login using Google"/>
+  <HelloWorld msg="Oneclick login using Google"/>
 </template>
 
 <script>
