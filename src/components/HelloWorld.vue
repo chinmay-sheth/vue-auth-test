@@ -3,7 +3,16 @@
     <h2>{{ msg }}</h2>
     <h2>Google Auth Initiated: {{ Vue3GoogleOauth.isInit }}</h2>
     <h3>User Authorized: {{ Vue3GoogleOauth.isAuthorized }}</h3>
-    <h3 v-if="user">signed user: {{user}}</h3>
+    <!-- Basic details -->   
+    <div> 
+    <h4 v-if="userName">Name: {{userName}}</h4>
+    <h4 v-if="user">Email Id: {{user}}</h4>
+    <h4 v-if="userFamilyName">Family Name: {{userFamilyName}}</h4>
+    <h4 v-if="userGivenName">Given Name: {{userGivenName}}</h4>
+    <h5>User Profile Picture</h5>
+    <img class="user-image" v-if="userImage" alt="user logo" :src="userImage">
+    </div>
+    <!-- Basic details End -->
     <button @click="handleClickSignIn" :disabled="!Vue3GoogleOauth.isInit || Vue3GoogleOauth.isAuthorized">sign in</button>
     <button @click="handleClickGetAuthCode" :disabled="!Vue3GoogleOauth.isInit">get authCode</button>
     <button @click="handleClickSignOut" :disabled="!Vue3GoogleOauth.isAuthorized">sign out</button>
@@ -74,6 +83,11 @@ export default {
         await this.$gAuth.signOut();
         console.log("isAuthorized", this.Vue3GoogleOauth.isAuthorized);
         this.user = "";
+        this.userImage ="";
+        this.userName = "";
+        this.userFamilyName = "";
+        this.userGivenName="";
+        this.getImageUrl="";
       } catch (error) {
         console.error(error);
       }
@@ -137,6 +151,11 @@ button:disabled {
   background: #fff;
   color: #ddd;
   cursor: not-allowed;
+}
+
+.user-image{
+  height : 150px;
+  width: auto;
 }
 </style>
 
