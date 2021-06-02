@@ -21,6 +21,10 @@ export default {
   data(){
     return {
       user: '',
+      userImage:'',
+      userName:'',
+      userFamilyName:'',
+      userGivenName:''
     }
   },
   methods: {
@@ -31,8 +35,18 @@ export default {
           return null;
         }
         console.log("googleUser", googleUser);
+        
         this.user = googleUser.getBasicProfile().getEmail();
+        this.userImage = googleUser.getBasicProfile().getImageUrl();
+        this.userName = googleUser.getBasicProfile().getName();
+        this.userFamilyName = googleUser.getBasicProfile().getFamilyName();
+        this.userGivenName = googleUser.getBasicProfile().getGivenName();
+
         console.log("getId", this.user);
+        console.log('Name',this.userName);
+        console.log('FamilyName',this.userFamilyName);
+        console.log('GivenName',this.userGivenName);
+        console.log("Image",this.userImage);
         console.log("getBasicProfile", googleUser.getBasicProfile());
         console.log("getAuthResponse", googleUser.getAuthResponse());
         console.log(
